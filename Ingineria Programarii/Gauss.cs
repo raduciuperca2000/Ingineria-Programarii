@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ingineria_Programarii
 {
+    public class Gauss
+    {
 
+    }
 
 }

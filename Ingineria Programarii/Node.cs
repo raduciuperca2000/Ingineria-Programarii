@@ -89,10 +89,7 @@ class Tree
             }
         }
     }
-    //public override string ToString()
-    //{
-    //    return Traverse(root, string.Empty);
-    //}
+
 
     public void Traverse()
     {
