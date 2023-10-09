@@ -27,8 +27,8 @@ int BinarySearch(int[] initialArray, int searchedItem) {
     while(p <= u)
     {
         int mijloc = (p + u) / 2;
-
-        if(searchedItem == initialArray[mijloc])
+        //`Console.WriteLine("Valoarea mijlocului: " + initialArray[mijloc]);
+        if (searchedItem == initialArray[mijloc])
         {
             return mijloc;
         }else if(searchedItem > initialArray[mijloc])
@@ -86,11 +86,11 @@ int[] generateArray(int size)
 {
     Random randomGenerator = new Random();
     int[] generatedArray = new int[size];
-    generatedArray[0] = randomGenerator.Next();
+    generatedArray[0] = randomGenerator.Next(0,1000);
 
     for(int i = 1; i < size; i++)
     {
-        generatedArray[i] = generatedArray[i-1] + randomGenerator.Next();
+        generatedArray[i] = generatedArray[i-1] + randomGenerator.Next(0, 1000);
     }
     return generatedArray;
 }
@@ -98,13 +98,13 @@ int[] generateArray(int size)
 int[] exampleArray = generateArray(100000);
 
 
-DateTime startTimeLinearSearch = DateTime.Now;
-Console.WriteLine(LinearSearch(exampleArray, exampleArray[80780]));
-DateTime endTimeLinearSearch = DateTime.Now;
-Console.WriteLine("Timpul de executie pentru Linear Search" +
-    " este de: " + (endTimeLinearSearch - startTimeLinearSearch).Ticks.ToString());
-DateTime startTimeBinarySearch = DateTime.Now;
-Console.WriteLine(BinarySearch(exampleArray, exampleArray[80780]));
-DateTime endTimeBinarySearch = DateTime.Now;
-Console.WriteLine("Timpul de executie pentru " +
-    "Binary Search este de: " + (endTimeBinarySearch - startTimeBinarySearch).Ticks.ToString());
+
+Tree exampleTree = new Tree();
+exampleTree.addNode(5);
+exampleTree.addNode(1);
+exampleTree.addNode(3);
+exampleTree.addNode(9);
+exampleTree.addNode(18);
+exampleTree.addNode(4);
+
+exampleTree.Traverse();
