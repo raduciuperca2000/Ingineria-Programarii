@@ -8,6 +8,12 @@ namespace Ingineria_Programarii
 {
     static public class Search
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="initialArray"></param>
+        /// <param name="searchedItem"></param>
+        /// <returns></returns>
        public static int LinearSearch(int[] initialArray, int searchedItem)
         {
 
@@ -22,7 +28,12 @@ namespace Ingineria_Programarii
             return -1;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="initialArray">Test 1 2 3</param>
+        /// <param name="searchedItem"></param>
+        /// <returns></returns>
         public static int BinarySearch(int[] initialArray, int searchedItem)
         {
             //Vectorul trebuie sa fie neaparat sortat

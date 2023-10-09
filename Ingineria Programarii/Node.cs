@@ -4,7 +4,6 @@
 
 
 
-/// Formula
 // Instructiunea for
 
 //DateTime startDateGauss1 = DateTime.Now;
@@ -29,6 +28,8 @@
 
 
 
+using Ingineria_Programarii;
+/// Formula
 //DateTime startTimeLinearSearch = DateTime.Now;
 //Console.WriteLine(LinearSearch(exampleArray, exampleArray[80780]));
 //DateTime endTimeLinearSearch = DateTime.Now;
