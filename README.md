@@ -15,4 +15,5 @@ Data sustinere proiect: **TBA** </br>
 Data examen: **TBA**
 
 
-## PPT
+## PPT Personal 
+https://docs.google.com/presentation/d/1qkhrhQFoUexxIJUT4msHWEuR3Qwla0bsutgActHA2XA/edit?usp=sharing
