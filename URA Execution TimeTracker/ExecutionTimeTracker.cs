@@ -5,44 +5,22 @@ namespace URA_Execution_TimeTracker
 {
     public class ExecutionTimeTracker
     {
-        public delegate long AlogirthmLong(int x);
 
 
-        public void TrackTimeInTicks(AlogirthmLong action ,  int x)
+        public void TrackTimeInTicks(Action<string> action, string executedAlgorithm)
         {
+            Console.WriteLine($"[Algoritm : {executedAlgorithm}]" +
+                $"");
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            action(x);
+            action(executedAlgorithm);
             stopwatch.Stop();
 
-            Console.WriteLine($"Timpul de executie {stopwatch.ElapsedTicks} Ticks");
+            Console.WriteLine($"[Timp executie: \x1b[1m{stopwatch.ElapsedTicks} Ticks\x1b[0m]\n");
         }
 
 
-        public void TrackTimeInTicks(Action action)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            action();
-            stopwatch.Stop();
-
-            Console.WriteLine($"Timpul de executie {stopwatch.ElapsedTicks} Ticks");
-        }
-
-
-
-        public void TrackTimeInMiliseconds(AlogirthmLong action, int x)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            action(x);
-            stopwatch.Stop();
-
-            Console.WriteLine($"Timpul de executie {stopwatch.ElapsedMilliseconds} Miliseconds");
-        }
 
         
 
