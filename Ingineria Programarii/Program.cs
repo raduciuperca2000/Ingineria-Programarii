@@ -49,4 +49,21 @@ executionTimeTracker.TrackTimeInTicks(
     );
 
 
+// Curs 2 -> Sortari
 
+
+int[] vectorInitial = { 1, 3, 6, 3, 2, 7, 8, 9 };
+
+
+
+
+executionTimeTracker.TrackTimeInTicks(
+    (string algo) => Sorting.BubbleSort(vectorInitial), "Metoda Bulelor");
+
+executionTimeTracker.TrackTimeInTicks(
+    (string algo) => Sorting.SelectionSort(vectorInitial), "Metoda Sortari prin selectie");
+
+executionTimeTracker.TrackTimeInTicks((string algo) => Sorting.SelectionSortImproved(vectorInitial), "Metoda Sortarii prin Selectie v2");
+
+executionTimeTracker.TrackTimeInTicks(
+    (string algo) => Sorting.CoutingSort(vectorInitial, 9), "Sortarea cu vector de frecventa");
