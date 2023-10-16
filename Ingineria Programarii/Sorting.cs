@@ -80,7 +80,8 @@ namespace Ingineria_Programarii
         /// // Vector de frecventa
         //                      0 1 2 3 4 5 6 7 8 9
         //                      0 1 1 2 0 0 1 1 1 1
-        //  Presupunem ca lucram pe N             
+        //  Presupunem ca lucram pe N
+        //  Complexitate O(N)
         /// </summary>
         /// <param name="inputArray"></param>
         public static void CoutingSort(int[] inputArray, int maxValue, bool showOutput = false)
@@ -102,5 +103,14 @@ namespace Ingineria_Programarii
                 }
             }
         }
+
+
+        public static void MergeSort(int[] inputArray, int st, int dr)
+        {
+
+        }
+
+
+
     }
 }

@@ -67,3 +67,18 @@ executionTimeTracker.TrackTimeInTicks((string algo) => Sorting.SelectionSortImpr
 
 executionTimeTracker.TrackTimeInTicks(
     (string algo) => Sorting.CoutingSort(vectorInitial, 9), "Sortarea cu vector de frecventa");
+
+
+int[] v1 = {1,3,4,5,6,7,8,9};
+int[] v2 = {2,6,8,10};
+
+
+executionTimeTracker.TrackTimeInTicks(
+    (string Algo) => Interclasare.InterclasareInt(v1, v2), "Interclasare");
+
+int[] output = Interclasare.InterclasareInt(v1, v2);
+
+foreach (int i in output)
+{
+    Console.WriteLine(i);
+}
