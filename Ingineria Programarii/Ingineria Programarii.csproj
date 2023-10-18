@@ -9,7 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\URA Execution TimeTracker\URA Execution TimeTracker.csproj" />
+    <PackageReference Include="Google.Cloud.Firestore" Version="3.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\URA Execution TimeTracker\URA Monitoring And Telemetry.csproj" />
   </ItemGroup>
 
 </Project>

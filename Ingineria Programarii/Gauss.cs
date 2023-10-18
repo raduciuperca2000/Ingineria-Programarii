@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ingineria_Programarii
 {
-    public static class Gauss
-    {
+     public static class Gauss { 
+
         /// <summary>
         /// Functia aplica Formula Matematica N(N+1) 
         /// </summary>

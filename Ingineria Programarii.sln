@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingineria Programarii", "Ingineria Programarii\Ingineria Programarii.csproj", "{2E95228A-A400-4B60-9A3F-B526045EC296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URA Execution TimeTracker", "URA Execution TimeTracker\URA Execution TimeTracker.csproj", "{78A1829F-0A96-46D0-A4D7-8C65129E6CC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URA Monitoring And Telemetry", "URA Execution TimeTracker\URA Monitoring And Telemetry.csproj", "{78A1829F-0A96-46D0-A4D7-8C65129E6CC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

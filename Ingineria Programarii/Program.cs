@@ -20,7 +20,7 @@ executionTimeTracker.TrackTimeInTicks(
 int[] arrayInitial = new int[5] { 14, 22, 34, 48, 59 };
 
 // Cautari 
-int[] exampleArray = Utilities.generateArray(100000);
+int[] exampleArray = Utilities.generateArray(10000000   );
 
 
 executionTimeTracker.TrackTimeInTicks(
@@ -76,9 +76,13 @@ int[] v2 = {2,6,8,10};
 executionTimeTracker.TrackTimeInTicks(
     (string Algo) => Interclasare.InterclasareInt(v1, v2), "Interclasare");
 
-int[] output = Interclasare.InterclasareInt(v1, v2);
+//int[] output = Interclasare.InterclasareInt(v1, v2);
 
-foreach (int i in output)
-{
-    Console.WriteLine(i);
-}
+//foreach (int i in output)
+//{
+//    Console.WriteLine(i);
+//}
+
+executionTimeTracker.TrackTimeInTicks(
+    (string algo) => Sorting.SelectionSort(exampleArray), "Selection Sort 1234");
+
