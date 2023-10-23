@@ -105,12 +105,114 @@ namespace Ingineria_Programarii
         }
 
 
-        public static void MergeSort(int[] inputArray, int st, int dr)
+        public static int[] MergeSort(int[] inputArray, int left, int right)
         {
+            // 1. Find the midle of the array
+            // Left + Right /2 
+
+            int mid = (left + right) / 2;
+
+            if(left < right)
+            {
+               MergeSort(inputArray, left, mid);
+               MergeSort(inputArray, mid +1, right);
+
+                int[] leftArray = new int[mid - left +1];
+                int[] rightArray = new int[right - mid];
+                Array.Copy(inputArray, left, leftArray, 0, leftArray.Length);
+                Array.Copy(inputArray, mid +1, rightArray, 0, rightArray.Length );
+
+                int[] sorted = Interclasare.InterclasareInt(leftArray, rightArray);
+
+                Array.Copy(sorted, 0, inputArray, left, sorted.Length);
+            }
+            return inputArray;
 
         }
+        /// <summary>
+        /// Sortare pe cozi
+        /// </summary>
+        /// <param name="inputArray"></param>
+        public static void DistributionSort(int[] inputArray)
+        {
+
+            int p = 0;
+            int k = 3;
+            int putere = 1;
+
+            List<int>[] cozi = new List<int>[10];
+
+            for (int i = 0; i < cozi.Length; i++)
+            {
+                cozi[i] = new List<int>();
+            }
+
+            for (int j = 0; j < k; j++)
+            {
+
+                int modulo = (int)Math.Pow(10,j);
+                foreach (int i in inputArray)
+                {
+                    cozi[i / modulo % 10].Add(i);
+                }
+
+                foreach (List<int> i in cozi)
+                {
+
+                    foreach (int j in i)
+                    {
+                        Console.WriteLine($"Elemetul {j}");
+                        inputArray[p++] = j;
+                    }
+                    i.Clear();
 
 
+                }
+
+
+                putere = putere * 10;
+            }
+        } 
 
     }
+}
+
+
+
+int[] x = { 123, 234, 651, 645, 861, 255, 907 };
+int k = 3;
+
+List<int>[] cozi = new List<int>[10];
+
+// Initializing empty lists
+for (int i = 0; i < 10; i++)
+{
+    cozi[i] = new List<int>();
+}
+
+int putere = 1;
+for (int j = 0; j < k; j++)
+{
+    foreach (int i in x)
+    {
+        cozi[i / putere % 10].Add(i);
+    }
+
+    int p = 0;
+    foreach (List<int> i in cozi)
+    {
+        foreach (int z in i)
+        {
+            Console.Write(z + " ");
+            x[p++] = z;
+        }
+    }
+    Console.WriteLine();
+
+    for (int i = 0; i < 10; i++)
+    {
+        cozi[i].Clear();
+    }
+
+    
 }

@@ -78,7 +78,29 @@ executionTimeTracker.TrackTimeInTicks(
 
 int[] output = Interclasare.InterclasareInt(v1, v2);
 
+executionTimeTracker.TrackTimeInTicks(
+    (string Algo) => Interclasare.InterclasarSameArray(v1, 0, v1.Length -1), "Interclasare Same Aray");
+
+output = Interclasare.InterclasarSameArray(v1, 0, v1.Length - 1);
+
+
 foreach (int i in output)
 {
     Console.WriteLine(i);
 }
+
+int[] v3 = { 1, 3, 5 };
+
+executionTimeTracker.TrackTimeInTicks(
+    (string Algo) => Sorting.MergeSort(vectorInitial, 0, vectorInitial.Length -1), "Merge Sort");
+
+int[] mergeSortArray = Sorting.MergeSort(vectorInitial, 0, vectorInitial.Length - 1);
+
+foreach(int i in mergeSortArray)
+{
+    Console.WriteLine($"Elementul {i}");
+}
+
+int[] v4 = { 123, 584, 048, 894, 146, 987, 246, 517, 983, 491 };
+
+Sorting.IDKSort(v4);
