@@ -1,4 +1,5 @@
 ﻿using Ingineria_Programarii;
+using System.Collections;
 using URA_Execution_TimeTracker;
 
 
@@ -20,7 +21,7 @@ executionTimeTracker.TrackTimeInTicks(
 int[] arrayInitial = new int[5] { 14, 22, 34, 48, 59 };
 
 // Cautari 
-int[] exampleArray = Utilities.generateArray(10000000   );
+int[] exampleArray = Utilities.generateArray(100000);
 
 
 executionTimeTracker.TrackTimeInTicks(
@@ -76,13 +77,36 @@ int[] v2 = {2,6,8,10};
 executionTimeTracker.TrackTimeInTicks(
     (string Algo) => Interclasare.InterclasareInt(v1, v2), "Interclasare");
 
-//int[] output = Interclasare.InterclasareInt(v1, v2);
-
-//foreach (int i in output)
-//{
-//    Console.WriteLine(i);
-//}
+int[] output = Interclasare.InterclasareInt(v1, v2);
 
 executionTimeTracker.TrackTimeInTicks(
-    (string algo) => Sorting.SelectionSort(exampleArray), "Selection Sort 1234");
+    (string Algo) => Interclasare.InterclasarSameArray(v1, 0, v1.Length -1), "Interclasare Same Aray");
 
+output = Interclasare.InterclasarSameArray(v1, 0, v1.Length - 1);
+
+
+foreach (int i in output)
+{
+    Console.WriteLine(i);
+}
+
+int[] v3 = { 1, 3, 5 };
+
+executionTimeTracker.TrackTimeInTicks(
+    (string Algo) => Sorting.MergeSort(vectorInitial, 0, vectorInitial.Length -1), "Merge Sort");
+
+int[] mergeSortArray = Sorting.MergeSort(vectorInitial, 0, vectorInitial.Length - 1);
+
+foreach(int i in mergeSortArray)
+{
+    Console.WriteLine($"Elementul {i}");
+}
+
+int[] v4 = { 123, 584, 048, 894, 146, 987, 246, 517, 983, 491 };
+
+//Sorting.IDKSort(v4);
+
+//foreach (DictionaryEntry i in Environment.GetEnvironmentVariables())
+//{
+//    Console.WriteLine($"Key: {i.Key} Value: {i.Value}");
+//}
