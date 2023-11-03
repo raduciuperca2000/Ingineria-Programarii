@@ -17,17 +17,19 @@ namespace URA_Execution_TimeTracker
         static DatabaseStorage()
         {
              string InstanceUri = "https://org8e38d34f.crm4.dynamics.com";
-             string SecretID = "SID1";
-             string AppID = "SID2";
+            string SecretID = "SECRET";
+            string AppID = "DISCRET";
 
 
-             connectionString = $@"AuthType=ClientSecret;
+            connectionString = $@"AuthType=ClientSecret;
                         SkipDiscovery=true;url={InstanceUri};
                         Secret={SecretID};
                         ClientId={AppID};
                         RequireNewInstance=true";
 
         }
+
+
 
 
         public string WhoAmI()
@@ -54,18 +56,20 @@ namespace URA_Execution_TimeTracker
         }
 
 
-        public void SaveInDataverse(string AlogrithmName, double ExecutionTime)
+        public void SaveInDataverse(string alogrithmName, double executionTime, string inputArray, int phase)
         {
             ServiceClient serviceClient = new(connectionString);
 
 
             Entity testEntity = new Entity("cre3f_algorithmrun");
-            testEntity["cre3f_name"] = AlogrithmName;
-            testEntity["cre3f_executiontime"] = ExecutionTime * 1.0f;
+            testEntity["cre3f_name"] = alogrithmName;
+            testEntity["cre3f_executiontime"] = executionTime * 1.0f;
             testEntity["cre3f_os"] = Environment.OSVersion.ToString();
-            //testEntity["cre3f_cpuidentifier"] = Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER");
-            //testEntity["cre3f_cpuidentifier"] = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
-            //testEntity["cre3f_cpuidentifier"] = Environment.GetEnvironmentVariable("NUMBER_OF_PROCESSORS");
+            testEntity["cre3f_cpu_identifier"] = Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER");
+            testEntity["cre3f_cpu_architecture"] = Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
+            testEntity["cre3f_numberofprocessors"] = Environment.GetEnvironmentVariable("NUMBER_OF_PROCESSORS");
+            testEntity["cre3f_inputarray"] = inputArray;
+            testEntity["cre3f_phase"] = phase;
 
 
 

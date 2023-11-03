@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 
@@ -14,7 +15,7 @@ namespace URA_Execution_TimeTracker
         //}
 
 
-        public void TrackTimeInTicks(Action<string> action, string executedAlgorithm)
+        public void TrackTimeInTicks(Action<string> action, int[] inputArray, string executedAlgorithm = "Unknow Algorithm", int phase = -1)
         {
             Console.WriteLine($"[Algoritm : {executedAlgorithm}]" +
                 $"");
@@ -25,8 +26,8 @@ namespace URA_Execution_TimeTracker
             stopwatch.Stop();
 
             DatabaseStorage databaseStorage = new DatabaseStorage();
-
-            databaseStorage.SaveInDataverse(executedAlgorithm, (double)stopwatch.ElapsedTicks);
+            string inputArrayJSON = JsonConvert.SerializeObject(inputArray);
+            databaseStorage.SaveInDataverse(executedAlgorithm, (double)stopwatch.ElapsedTicks, inputArrayJSON, phase);
 
 
             Console.WriteLine($"[Timp executie: \x1b[1m{stopwatch.ElapsedTicks} Ticks\x1b[0m]\n");

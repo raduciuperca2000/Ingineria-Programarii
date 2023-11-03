@@ -29,7 +29,7 @@ namespace Ingineria_Programarii
                         isSorted = false;
                     }
                 }
-            } while (isSorted = false);
+            } while (isSorted == false);
         }
 
         /// <summary>
