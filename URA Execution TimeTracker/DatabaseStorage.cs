@@ -16,9 +16,9 @@ namespace URA_Execution_TimeTracker
         public static string? connectionString { get; set; }
         static DatabaseStorage()
         {
-             string InstanceUri = "https://org8e38d34f.crm4.dynamics.com";
-            string SecretID = "SECRET -- ";
-            string AppID = "DISCRET --";
+            string InstanceUri = "https://org8e38d34f.crm4.dynamics.com";
+            string SecretID = "KzR8Q~zyAKPnQ7d8GHmQ749BrmQipmCE0n_YOcvR";
+            string AppID = "cab1054e-f642-4b8f-8bce-c01d99f11049";
 
 
             connectionString = $@"AuthType=ClientSecret;
