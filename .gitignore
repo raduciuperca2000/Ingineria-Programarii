@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 DatabaseStorage.cs
+/URA Execution TimeTracker/DatabaseStorage.cs
