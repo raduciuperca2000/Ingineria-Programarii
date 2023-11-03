@@ -129,6 +129,233 @@ namespace Ingineria_Programarii
             return inputArray;
 
         }
+
+
+
+        //QuickSort
+        public static void Quick_Sort(int[] arr, int left, int right)
+        {
+            if (left < right)
+            {
+                int pivot = Partition(arr, left, right);
+
+                if (pivot > 1)
+                {
+                    Quick_Sort(arr, left, pivot - 1);
+                }
+                if (pivot + 1 < right)
+                {
+                    Quick_Sort(arr, pivot + 1, right);
+                }
+            }
+
+        }
+
+        public static int Partition(int[] arr, int left, int right)
+        {
+            int pivot = arr[left];
+            while (true)
+            {
+
+                while (arr[left] < pivot)
+                {
+                    left++;
+                }
+
+                while (arr[right] > pivot)
+                {
+                    right--;
+                }
+
+                if (left < right)
+                {
+                    if (arr[left] == arr[right]) return right;
+
+                    int temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+
+
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+
+
+
+
+        //HeapSort
+
+        public static void heapSort<T>(T[] array) where T : IComparable<T>
+        {
+            int heapSize = array.Length;
+
+            buildMaxHeap(array);
+
+            for (int i = heapSize - 1; i >= 1; i--)
+            {
+                swap(array, i, 0);
+                heapSize--;
+                sink(array, heapSize, 0);
+            }
+        }
+
+        public static void buildMaxHeap<T>(T[] array) where T : IComparable<T>
+        {
+            int heapSize = array.Length;
+
+            for (int i = (heapSize / 2) - 1; i >= 0; i--)
+            {
+                sink(array, heapSize, i);
+            }
+        }
+
+        public static void sink<T>(T[] array, int heapSize, int toSinkPos) where T : IComparable<T>
+        {
+            if (getLeftKidPos(toSinkPos) >= heapSize)
+            {
+                // No left kid => no kid at all
+                return;
+            }
+
+
+            int largestKidPos;
+            bool leftIsLargest;
+
+            if (getRightKidPos(toSinkPos) >= heapSize || array[getRightKidPos(toSinkPos)].CompareTo(array[getLeftKidPos(toSinkPos)]) < 0)
+            {
+                largestKidPos = getLeftKidPos(toSinkPos);
+                leftIsLargest = true;
+            }
+            else
+            {
+                largestKidPos = getRightKidPos(toSinkPos);
+                leftIsLargest = false;
+            }
+
+
+
+            if (array[largestKidPos].CompareTo(array[toSinkPos]) > 0)
+            {
+                swap(array, toSinkPos, largestKidPos);
+
+                if (leftIsLargest)
+                {
+                    sink(array, heapSize, getLeftKidPos(toSinkPos));
+
+                }
+                else
+                {
+                    sink(array, heapSize, getRightKidPos(toSinkPos));
+                }
+            }
+
+        }
+
+        public static void swap<T>(T[] array, int pos0, int pos1)
+        {
+            T tmpVal = array[pos0];
+            array[pos0] = array[pos1];
+            array[pos1] = tmpVal;
+        }
+
+        public static int getLeftKidPos(int parentPos)
+        {
+            return (2 * (parentPos + 1)) - 1;
+        }
+
+        public static int getRightKidPos(int parentPos)
+        {
+            return 2 * (parentPos + 1);
+        }
+
+
+        //Bucket sort
+
+
+        public static void bucketSort(float[] arr, int n)
+        {
+            if (n <= 0)
+                return;
+
+            // 1) Create n empty buckets
+            List<float>[] buckets = new List<float>[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                buckets[i] = new List<float>();
+            }
+
+            // 2) Put array elements in different buckets
+            for (int i = 0; i < n; i++)
+            {
+                float idx = arr[i] * n;
+                buckets[(int)idx].Add(arr[i]);
+            }
+
+            // 3) Sort individual buckets
+            for (int i = 0; i < n; i++)
+            {
+                buckets[i].Sort();
+            }
+
+            // 4) Concatenate all buckets into arr[]
+            int index = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < buckets[i].Count; j++)
+                {
+                    arr[index++] = buckets[i][j];
+                }
+            }
+        }
+
+
+
+
+        //BogoSort
+
+        static void Swap<T>(ref T lhs, ref T rhs)
+        {
+            T temp;
+            temp = lhs;
+            lhs = rhs;
+            rhs = temp;
+        }
+
+        // To check if array is sorted or not
+        public static bool isSorted(int[] a, int n)
+        {
+            int i = 0;
+            while (i < n - 1)
+            {
+                if (a[i] > a[i + 1])
+                    return false;
+                i++;
+            }
+            return true;
+        }
+
+        // To generate permutation of the array
+        public static void shuffle(int[] a, int n)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++)
+                Swap(ref a[i], ref a[rnd.Next(0, n)]);
+        }
+
+        // Sorts array a[0..n-1] using Bogo sort
+        public static void bogosort(int[] a, int n)
+        {
+            // if array is not sorted then shuffle
+            // the array again
+            while (!isSorted(a, n))
+                shuffle(a, n);
+        }
+
         /// <summary>
         /// Sortare pe cozi
         /// </summary>
